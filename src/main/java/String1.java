@@ -38,8 +38,8 @@ public class String1
      *  helloName("Alice") → "Hello Alice!"
      *  helloName("X") → "Hello X!"
      */
-    public String helloName(String name) {
-        return unimplemented;
+    public String helloName(String p) {
+        return  "Hello " + p  + "!"; 
     }
 
     /*
@@ -50,7 +50,9 @@ public class String1
      * makeAbba("What", "Up") → "WhatUpUpWhat"
      */
     public String makeAbba(String a, String b) {
-        return unimplemented;
+        String output = " ";
+        output =  a + b + b + a;
+        return output;
     }
 
     /*
@@ -62,7 +64,9 @@ public class String1
      * makeTags("cite", "Yay") → "<cite>Yay</cite>"
      */
     public String makeTags(String tag, String word) {
-        return unimplemented;
+        String output = " ";
+        output = ("<" + tag + ">" + word + "<" + tag + ">");
+        return output;
     }
 
     /*
@@ -76,7 +80,10 @@ public class String1
      * makeOutWord("[[]]", "word") → "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        return unimplemented;
+        String front = out.substring(0,2);
+        String back = out.substring(2,4);
+        
+        return front + word + back;
     }
 
     /*
@@ -87,7 +94,9 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        return unimplemented;
+         String output = "";
+        output = str.substring(str.length()-2);
+        return output + output + output;
     }
 
     /*
@@ -100,7 +109,11 @@ public class String1
      * firstTwo("ab") → "ab"
      */
     public String firstTwo(String str) {
-        return unimplemented;
+      if (str.length() < 2) {
+        return str; // Return the string itself if it's shorter than 2 characters
+    }
+    // Return the first 2 characters of the string
+    return str.substring(0, 2); 
     }
 
     /*
@@ -110,7 +123,8 @@ public class String1
      * firstHalf("abcdef") → "abc"
      */
     public String firstHalf(String str) {
-        return unimplemented;
+        int midpoint = str.length()/2;
+        return str.substring(0, midpoint);
     }
 
     /*
@@ -121,7 +135,7 @@ public class String1
      * withoutEnd("coding") → "odin"
      */
     public String withoutEnd(String str) {
-        return unimplemented;
+        return str.substring(1, str.length()-1);
     }
 
     /*
@@ -133,7 +147,18 @@ public class String1
      * comboString("aaa", "b") → "baaab"
      */
     public String comboString(String a, String b) {
-        return unimplemented;
+        String comboString = "";
+       
+        if(a.length() < b.length())
+        {
+            comboString = a+b+a;
+        }
+        else
+        {
+            comboString = b+a+b;
+        }
+        
+        return comboString;
     }
 
     /*
@@ -144,7 +169,9 @@ public class String1
      * middleThree("solving") → "lvi"
      */
     public String middleThree(String str) {
-        return unimplemented;
+        int midpoint = str.length()/2; 
+        String s = str.substring(midpoint -1, midpoint+2);
+        return s;
     }
 
     /*
@@ -155,7 +182,15 @@ public class String1
      * extraFront("H") → "HHH"
      */
     public String extraFront(String str) {
-        return unimplemented;
+        String extraFront;
+        if(str.length()< 2) { 
+            extraFront = str;
+        }
+            else{
+            extraFront = str.substring(0,2);
+           
+        }
+        return extraFront + extraFront + extraFront;
     }
 
     /*
@@ -166,7 +201,9 @@ public class String1
      * left2("Hi") → "Hi"
      */
     public String left2(String str) {
-        return unimplemented;
+        String firstTwo = str.substring(0,2);
+          String restofTwo = str.substring(2);
+          return restofTwo + firstTwo;
     }
 
     /*
@@ -178,7 +215,14 @@ public class String1
      * hasBad("xxbadxx") → false
      */
     public boolean hasBad(String str) {
-        return false;
+if (str.indexOf("bad") == 0 ||( str.indexOf("bad") == 1))
+            {  
+            return true;
+            }
+            else
+            {
+            return false;
+            }
     }
 
     /*
@@ -190,7 +234,19 @@ public class String1
      * conCat("abc", "") → "abc"
      */
     public String conCat(String a, String b) {
-        return unimplemented;
+        String conCat = "";
+      
+             if (b !="" && (a.charAt(a.length()-1) ==  b.charAt(0)))
+         
+          conCat = a + b.substring(1);
+          
+          else 
+          
+              conCat = a + b;
+            
+
+              return conCat;
+          
     }
 
     /*
@@ -204,7 +260,18 @@ public class String1
      *minCat("java", "Hello") → "javaello"
      */
     public String minCat(String a, String b) {
-        return unimplemented;
+        int aLength = a.length();
+        int bLength = b.length();
+        String minCat = "";
+        
+        if(aLength < bLength)
+        
+        minCat = a + b.substring( bLength - aLength);
+        
+        else 
+        minCat =  a.substring( aLength - bLength) + b;
+        
+        return minCat;
     }
 
     /*
@@ -215,7 +282,25 @@ public class String1
      * withoutX("Hxix") → "Hxi"
      */
     public String withoutX(String str) {
-        return unimplemented;
+        String withoutX = "";
+        
+        if(str.charAt(0) == 'x' && str.charAt(str.length()-1) == 'x')
+        
+        withoutX = str.substring(1,str.length()-1);
+        
+        else if (str.charAt(0) == 'x')
+        
+        withoutX = str.substring(1,str.length());
+        
+        else if (str.charAt(str.length()-1) == 'x')
+        
+        withoutX = str.substring(0,str.length()-1);
+        
+        else
+        
+        withoutX = str;
+        
+        return withoutX;
     }
 
     /*
@@ -228,7 +313,20 @@ public class String1
      * deFront("away") → "aay"
      */
     public String deFront(String str) {    
-        return unimplemented;
+         String versionWithoutFirst2Chars = str.substring(2);
+        
+        if(str.charAt(0) == 'a' && str.charAt(1) == 'b')
+        
+        versionWithoutFirst2Chars = "ab" + versionWithoutFirst2Chars ;
+        
+        else if(str.charAt(0) == 'a')
+        
+                versionWithoutFirst2Chars = "a" + versionWithoutFirst2Chars ;
+            else if(str.charAt(1) == 'b')
+        
+                versionWithoutFirst2Chars = "b" + versionWithoutFirst2Chars ;
+        
+        return versionWithoutFirst2Chars;
     }
 
 }
