@@ -284,15 +284,15 @@ if (str.indexOf("bad") == 0 ||( str.indexOf("bad") == 1))
     public String withoutX(String str) {
         String withoutX = "";
         
-        if(str.charAt(0) == 'x' && str.charAt(str.length()-1) == 'x')
+        if(str.startsWith("x") && str.endsWith("x"))
         
         withoutX = str.substring(1,str.length()-1);
         
-        else if (str.charAt(0) == 'x')
+        else if (str.startsWith("x"))
         
         withoutX = str.substring(1,str.length());
         
-        else if (str.charAt(str.length()-1) == 'x')
+        else if (str.endsWith("x"))
         
         withoutX = str.substring(0,str.length()-1);
         
